@@ -1,0 +1,7 @@
+.header {
+    padding: 30px;
+    background-color: #25273b;
+    color: rgb(19, 255, 255);
+    text-align: center;
+    transition: .3s;
+}
