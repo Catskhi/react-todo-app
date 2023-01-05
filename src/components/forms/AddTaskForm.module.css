@@ -1,0 +1,18 @@
+.fade {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.form {
+    position: absolute;
+    z-index: 1;
+    color: aliceblue;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+}

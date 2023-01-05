@@ -1,0 +1,71 @@
+.difficultyDropdown {
+    margin-left: 15px;
+    transition: .3s;
+}
+
+.difficultyButton {
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    transition: .3s;
+}
+
+.hide {
+    display: none !important;
+    transition: .3s;
+}
+
+.veryEasy {
+    background-color: rgb(156, 238, 33);
+}
+.veryEasy:hover {
+    background-color: rgb(139, 212, 28);
+}
+.veryEasy:active {
+    background-color: rgb(118, 180, 24);
+}
+
+.easy {
+    background-color: rgb(83, 233, 83);
+}
+.easy:hover {
+    background-color: rgb(74, 211, 74);
+}
+.easy:active {
+    background-color: rgb(60, 177, 60);
+}
+
+.medium {
+    background-color: rgb(230, 203, 52);
+}
+.medium:hover {
+    background-color: rgb(211, 186, 48);
+}
+.medium:active {
+    background-color: rgb(185, 164, 40);
+}
+
+.hard {
+    background-color: rgb(233, 89, 33);
+}
+.hard:hover {
+    background-color: rgb(211, 82, 30);
+}
+.hard:active {
+    background-color: rgb(182, 69, 24);
+}
+
+.veryHard {
+    background-color: rgb(230, 35, 35);
+}
+.veryHard:hover {
+    background-color: rgb(199, 29, 29);
+}
+.veryHard:active {
+    background-color: rgb(179, 22, 22);
+}
