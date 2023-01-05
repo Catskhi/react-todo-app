@@ -1,5 +1,5 @@
 .fade {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: absolute;
     background-color: black;
@@ -15,4 +15,8 @@
 .centralize {
     display: flex;
     justify-content: center;
+}
+
+.hide {
+    display: none;
 }

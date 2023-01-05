@@ -1,12 +1,13 @@
-import React, { Children, Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { Children, Dispatch, MutableRefObject, SetStateAction, useEffect, useState } from 'react';
 
 import styles from './DifficultyMenu.module.css'
 
 interface IDifficultyMenu {
   setDifficulty : Dispatch<SetStateAction<string>>
+  buttonRef: MutableRefObject<Function>
 }
 
-export default function DifficultyMenu ({setDifficulty} : IDifficultyMenu) {
+export default function DifficultyMenu ({setDifficulty, buttonRef} : IDifficultyMenu) {
   const [difficultyButtonText, setDifficultyButtonText] = useState<string>('Select a Difficulty')
 
   const showOrHideItems = () => {
@@ -20,6 +21,12 @@ export default function DifficultyMenu ({setDifficulty} : IDifficultyMenu) {
       }
   }
 
+  // Reset button
+  buttonRef.current = function resetButton() {
+    setButtonValue('')
+    showOrHideItems()
+  }
+
   const setButtonValue = (difficulty : string) => {
     let difficultyButton = document.getElementById('difficultyButton')
     difficultyButton!.className = styles.difficultyButton
@@ -27,58 +34,68 @@ export default function DifficultyMenu ({setDifficulty} : IDifficultyMenu) {
       case 'Very Easy':
           difficultyButton?.classList.add(styles.veryEasy)
           setDifficultyButtonText('Very Easy')
+          setDifficulty('Very Easy')
         break;
       case 'Easy':
         difficultyButton?.classList.add(styles.easy)
         setDifficultyButtonText('Easy')
+        setDifficulty('Easy')
         break;
       case 'Medium':
         difficultyButton?.classList.add(styles.medium)
         setDifficultyButtonText('Medium')
+        setDifficulty('Medium')
         break;
       case 'Hard':
         difficultyButton?.classList.add(styles.hard)
         setDifficultyButtonText('Hard')
+        setDifficulty('Hard')
         break;
       case 'Very Hard':
         difficultyButton?.classList.add(styles.veryHard)
-        setDifficultyButtonText('Very hard')
+        setDifficultyButtonText('Very Hard')
+        setDifficulty('Very Hard')
         break
+      default:
+        difficultyButton!.className = styles.difficultyButton
+        setDifficultyButtonText('Select a Difficulty')
+        setDifficulty('')
+        break;
     }
     showOrHideItems()
   }
 
   return (
     <div className={styles.difficultyDropdown}>
-      <button id='difficultyButton' className={styles.difficultyButton}
+      <button type='button' id='difficultyButton' className={styles.difficultyButton}
         onClick={showOrHideItems}
       >{difficultyButtonText}</button>
       <div id={'dropDownItems'} className={'dropdown-items'}>
-        <button
+        <button type='button'
         onClick={() => setButtonValue('Very Easy')}
         className={ 'hide '
          + styles.veryEasy + ' ' + styles.difficultyButton}>
           Very Easy
         </button>
-        <button
+        <button type='button'
         onClick={() => setButtonValue('Easy')}
         className={'hide ' +
         styles.easy + ' ' + styles.difficultyButton}>
           Easy
         </button>
-        <button
+        <button type='button'
         onClick={() => setButtonValue('Medium')}
         className={'hide ' +
         styles.medium + ' ' + styles.difficultyButton}>
           Medium
         </button>
-        <button
+        <button type='button'
         onClick={() => setButtonValue('Hard')}
         className={'hide ' +
         styles.hard +' ' + styles.difficultyButton}>
           Hard
         </button>
-        <button
+        <button type='button'
         onClick={() => setButtonValue('Very Hard')}
         className={'hide ' +
         styles.veryHard + ' ' + styles.difficultyButton}>
