@@ -15,12 +15,12 @@ export default function AddTaskForm ({taskList, setTaskList}: ITaskForm) {
 
     const addTask = (newTask : ITask) => {
         setTaskList([...taskList, newTask])
+        closeForm()
     }
     
     const closeForm = () => {
         let addForm = document.getElementById('addForm')
         addForm!.classList.add('hide')
-
     }
 
     return (

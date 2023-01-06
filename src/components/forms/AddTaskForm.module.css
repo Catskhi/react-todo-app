@@ -1,5 +1,5 @@
 .fade {
-    height: 100vh;
+    min-height: 120%;
     width: 100%;
     position: absolute;
     background-color: black;

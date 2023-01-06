@@ -5,6 +5,8 @@ import Header from './components/Header';
 import { ITask } from './interfaces/task';
 
 import './index.css'
+import TaskList from './components/list/TaskList';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -22,7 +24,8 @@ function App() {
         />
       <Header/>
       <AddTaskButton/>
-      <button type='button' onClick={showTaskList}>Test</button>
+      <TaskList taskList={taskList}/>
+      <Footer/>
     </div>
   );
 }

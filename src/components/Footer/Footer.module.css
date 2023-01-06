@@ -1,0 +1,21 @@
+.footer {
+    margin-top: 50px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25273B;
+    color: aliceblue;
+    transition: .3s;
+}
+
+.name {
+    color: #13FFFF;
+    transition: .3s;
+}
+.name:hover {
+    color: #0dcaca;
+}
+.name:active {
+    color: #0aa5a5
+}

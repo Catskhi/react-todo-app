@@ -57,12 +57,18 @@ export default function FormCard ({
           // Add the task
           if (addOrEdit === 'Add') {
               const id = Math.floor(Math.random() * 1000)
-              const newTask = {
-                id, taskTitle, taskDescription, currentDifficultyValue
+              const newTask : ITask = {
+                id: id, 
+                title: taskTitle, 
+                description: taskDescription,
+                // Converts string to ITask['difficulty']
+                difficulty: currentDifficultyValue as ITask['difficulty']
               }
               addOrEditMethod(newTask)
               clearCard()
           }
+        } else {
+          showOrHideError(true)
         }
     }
 
@@ -94,7 +100,7 @@ export default function FormCard ({
       <textarea id={'task_description'} 
         value={taskDescription} onChange={handleChange}
         required
-        maxLength={364}
+        maxLength={100}
         className={styles.inputText}/>
       <h3>{difficulty_title}</h3>
       <DifficultyMenu

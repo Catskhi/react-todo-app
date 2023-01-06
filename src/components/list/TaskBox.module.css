@@ -1,0 +1,63 @@
+.taskBox {
+    background-color: #25273B;
+    color: aliceblue !important;
+    width: 80%;
+    border-radius: 10px;
+    padding: 5px;
+    padding-bottom: 15px;
+    margin: 10px;
+    word-wrap: break-word;
+    transition: .3s;
+}
+
+.taskBox h3 {
+    left: 10px;
+}
+
+.taskBox p {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    max-width: 450px;
+    padding: 5px;
+    transition: .3s;
+}
+
+.difficulty {
+    margin-top: 15px;
+}
+
+.taskBox.VeryEasy {
+    box-shadow: 5px 5px #8BD41C;
+}
+.VeryEasy {
+    color: #8BD41C;
+}
+
+.taskBox.Easy {
+    box-shadow: 5px 5px #4AD34A;
+}
+.Easy {
+    color: #4AD34A;
+}
+
+.taskBox.Medium {
+    box-shadow: 5px 5px #D3BA30;
+}
+.Medium {
+    color: #D3BA30
+}
+
+.taskBox.Hard {
+    box-shadow: 5px 5px #D3521E;
+}
+.Hard {
+    color: #D3521E
+}
+
+.taskBox.VeryHard {
+    box-shadow: 5px 5px #CA1E1E;
+}
+.VeryHard {
+    color: #CA1E1E;
+}

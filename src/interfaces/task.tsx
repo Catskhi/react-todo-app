@@ -1,4 +1,4 @@
-type difficultyType = 'Very Easy' | 'Easy' | 'Medium' | 'Hard' | 'Very Hard'
+type difficultyType =  'Very Easy' | 'Easy' | 'Medium' | 'Hard' | 'Very Hard'
 
 export interface ITask {
     id: number,
