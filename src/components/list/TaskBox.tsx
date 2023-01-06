@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { ITask } from '../../interfaces/task';
 
 // CSS

@@ -12,10 +12,6 @@ function App() {
 
   const [taskList, setTaskList] = useState<ITask[]>([])
 
-  const showTaskList = () => {
-    console.log(taskList)
-  }
-
   return (
     <div className="App">
         <AddTaskForm

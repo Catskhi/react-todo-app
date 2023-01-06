@@ -6,6 +6,7 @@ export default function Footer () {
   return (
     <div className={styles.footer}>
         <h4>By <a href='https://github.com/Catskhi/'
+        rel='noreferrer'
         target={'_blank'}
         className={styles.name}>Catskhi</a> @ 2023</h4>
     </div>

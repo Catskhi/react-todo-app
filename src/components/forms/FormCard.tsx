@@ -52,7 +52,7 @@ export default function FormCard ({
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-        if (currentDifficultyValue != ''){
+        if (currentDifficultyValue !== ''){
           showOrHideError(false)
           // Add the task
           if (addOrEdit === 'Add') {
