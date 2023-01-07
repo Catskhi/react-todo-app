@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useRef, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
 import DifficultyMenu from './DifficultyMenu';
 
 import { ITask } from '../../interfaces/task';
@@ -12,9 +12,11 @@ interface IFormCard {
     task_title : string,
     task_description_title: string,
     difficulty_title: string,
+    formButtonValue : string,
     addOrEdit: process,
     addOrEditMethod: Function,
     closeMethod: Function
+    task ?: ITask
 }
 
 export default function FormCard ({
@@ -24,11 +26,14 @@ export default function FormCard ({
     difficulty_title,
     addOrEdit,
     addOrEditMethod,
-    closeMethod
+    closeMethod,
+    formButtonValue,
+    task
 }: IFormCard) {
 
     const [currentDifficultyValue, setCurrentDifficultyValue] = useState<string>('')
 
+    
     const [taskTitle, setTaskTitle] = useState<string>('')
     const [taskDescription, setTaskDescription] = useState<string>('')
 
@@ -52,24 +57,34 @@ export default function FormCard ({
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-        if (currentDifficultyValue !== ''){
-          showOrHideError(false)
-          // Add the task
-          if (addOrEdit === 'Add') {
-              const id = Math.floor(Math.random() * 1000)
-              const newTask : ITask = {
-                id: id, 
-                title: taskTitle, 
+          if (currentDifficultyValue !== ''){
+            showOrHideError(false)
+            // Add the task
+            if (addOrEdit === 'Add') {
+                const id = Math.floor(Math.random() * 1000)
+                const newTask : ITask = {
+                  id: id, 
+                  title: taskTitle, 
+                  description: taskDescription,
+                  // Converts string to ITask['difficulty']
+                  difficulty: currentDifficultyValue as ITask['difficulty']
+                }
+                addOrEditMethod(newTask)
+                clearCard()
+            } else {
+              let currentID : number = task!.id
+              task = {
+                id: currentID,
+                title: taskTitle,
                 description: taskDescription,
-                // Converts string to ITask['difficulty']
                 difficulty: currentDifficultyValue as ITask['difficulty']
               }
-              addOrEditMethod(newTask)
+              addOrEditMethod(task)
               clearCard()
+            }
+          } else {
+            showOrHideError(true)
           }
-        } else {
-          showOrHideError(true)
-        }
     }
 
     const handleChange = (e : ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -80,9 +95,11 @@ export default function FormCard ({
       }
     }
 
+  const editTaskClass = (addOrEdit === 'Edit' ? styles.editTaskForm : '')
+
   return (
     <form onSubmit={handleSubmit}>
-    <div className={styles.card}>
+    <div className={styles.card + ' ' + editTaskClass}>
       <i
       onClick={() => {
         clearCard()
@@ -104,10 +121,11 @@ export default function FormCard ({
         className={styles.inputText}/>
       <h3>{difficulty_title}</h3>
       <DifficultyMenu
+        id={addOrEdit === 'Add' ? 'addDropDownItems' : 'editDropDownItems'}
         buttonRef={buttonRef}
         setDifficulty={setCurrentDifficultyValue}/>
       <p id='Error' className={styles.hide + ' ' + styles.Error}>* You must select a difficulty to add the task!</p>
-      <button type='submit' className={styles.submitButton}>Add Task</button>
+      <button type='submit' className={styles.submitButton}>{formButtonValue}</button>
     </div>
     </form>
   );

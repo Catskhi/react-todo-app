@@ -4,6 +4,7 @@ import { ITask } from '../../interfaces/task'
 
 // Styles 
 import styles from './AddTaskForm.module.css'
+import Fade from './Fade'
 import FormCard from './FormCard'
 
 export interface ITaskForm {
@@ -27,7 +28,7 @@ export default function AddTaskForm ({taskList, setTaskList}: ITaskForm) {
         <div id='addForm' className={styles.centralize + ' hide'}
             
         >
-            <div id='fade' className={styles.fade}></div>
+            <Fade/>
             <div className={styles.form}>
             <div id='form'>
                 <FormCard 
@@ -35,6 +36,7 @@ export default function AddTaskForm ({taskList, setTaskList}: ITaskForm) {
                     task_title={'Task Title'}
                     task_description_title={'Task Description'}
                     difficulty_title={'Difficulty'}
+                    formButtonValue={'Add Task'}
                     addOrEdit={'Add'}
                     addOrEditMethod={addTask}
                     closeMethod={closeForm}

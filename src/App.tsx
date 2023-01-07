@@ -7,6 +7,7 @@ import { ITask } from './interfaces/task';
 import './index.css'
 import TaskList from './components/list/TaskList';
 import Footer from './components/Footer/Footer';
+import EditTaskForm from './components/forms/EditTaskForm';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         />
       <Header/>
       <AddTaskButton/>
-      <TaskList taskList={taskList}/>
+      <TaskList taskListSetter={setTaskList} taskList={taskList}/>
       <Footer/>
     </div>
   );

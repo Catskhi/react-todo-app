@@ -5,13 +5,15 @@ import styles from './DifficultyMenu.module.css'
 interface IDifficultyMenu {
   setDifficulty : Dispatch<SetStateAction<string>>
   buttonRef: MutableRefObject<Function>
+  id : string
 }
 
-export default function DifficultyMenu ({setDifficulty, buttonRef} : IDifficultyMenu) {
+export default function DifficultyMenu ({setDifficulty, buttonRef, id} : IDifficultyMenu) {
   const [difficultyButtonText, setDifficultyButtonText] = useState<string>('Select a Difficulty')
 
   const showOrHideItems = () => {
-      let dropdown = document.getElementById('dropDownItems')
+    console.log('oi')
+      let dropdown = document.getElementById(id)
       for (let i:number = 0; i < dropdown!.children.length; i += 1) {
         if (dropdown!.children[i].classList.contains('hide')) {
           dropdown!.children[i].classList.remove('hide')
@@ -28,7 +30,7 @@ export default function DifficultyMenu ({setDifficulty, buttonRef} : IDifficulty
   }
 
   const setButtonValue = (difficulty : string) => {
-    let difficultyButton = document.getElementById('difficultyButton')
+    let difficultyButton = document.getElementById(id + ' difficultyButton')
     difficultyButton!.className = styles.difficultyButton
     switch (difficulty) {
       case 'Very Easy':
@@ -67,10 +69,10 @@ export default function DifficultyMenu ({setDifficulty, buttonRef} : IDifficulty
 
   return (
     <div className={styles.difficultyDropdown}>
-      <button type='button' id='difficultyButton' className={styles.difficultyButton}
+      <button type='button' id={id + ' difficultyButton'} className={styles.difficultyButton}
         onClick={showOrHideItems}
       >{difficultyButtonText}</button>
-      <div id={'dropDownItems'} className={'dropdown-items'}>
+      <div id={id} className={'dropdown-items'}>
         <button type='button'
         onClick={() => setButtonValue('Very Easy')}
         className={ 'hide '

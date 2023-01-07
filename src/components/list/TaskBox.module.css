@@ -1,5 +1,6 @@
 .taskBox {
     background-color: #25273B;
+    font-family: Arial, Helvetica, sans-serif;
     color: aliceblue !important;
     width: 80%;
     border-radius: 10px;
@@ -16,11 +17,50 @@
 
 .taskBox p {
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
     margin-left: 10px;
-    max-width: 450px;
+    min-width: 100%;
     padding: 5px;
     transition: .3s;
+}
+
+.taskBox div {
+    margin-left: 15px;
+    width: 110%;
+}
+
+.boxButtonGeneric {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 10%;
+    transition: .3s;
+}
+.boxButtonGeneric:hover {
+    color: rgb(198, 206, 212);
+}
+.boxButtonGeneric:active {
+    color: rgb(146, 153, 158);
+    
+}
+
+.editButton {
+    margin-right: 35px;
+}
+
+.trashButton {
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    .editButton {
+        
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .editButton {
+        
+    }
 }
 
 .difficulty {
