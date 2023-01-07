@@ -7,9 +7,10 @@ import styles from './TaskBox.module.css'
 interface ITaskBoxProps {
     task : ITask
     showEditFormMethod : Function
+    deleteTaskMethod: Function
 }
 
-export default function TaskBox ({task, showEditFormMethod}: ITaskBoxProps) {
+export default function TaskBox ({task, showEditFormMethod, deleteTaskMethod}: ITaskBoxProps) {
 
     let difficultyColor
     switch (task.difficulty) {
@@ -34,6 +35,10 @@ export default function TaskBox ({task, showEditFormMethod}: ITaskBoxProps) {
       showEditFormMethod(task)
     }
 
+    const deleteTask = () => {
+      deleteTaskMethod(task)
+    }
+
   return (
     <div id='box' className={styles.taskBox + ' ' + difficultyColor}>
       <h3>{task.title}</h3>
@@ -44,7 +49,7 @@ export default function TaskBox ({task, showEditFormMethod}: ITaskBoxProps) {
         onClick={editTask}
         />
         <i className={"bi bi-trash-fill " + styles.boxButtonGeneric + ' ' + styles.trashButton}
-
+          onClick={deleteTask}
         />
       </div>
     </div>

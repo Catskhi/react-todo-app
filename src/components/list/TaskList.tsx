@@ -23,12 +23,24 @@ export default function TaskList ({taskList, taskListSetter}: IListProps) {
     }
   }
 
+  const deleteTask = (task : ITask) => {
+    if (task) {
+      taskListSetter(
+        taskList.filter(taskItem => {
+          return taskItem.id !== task.id
+        })
+      )
+    }
+  }
+
   return (
     <>
       <EditTaskForm taskListSetter={taskListSetter} taskList={taskList} task={taskToEdit}/>
       <div className={styles.taskList}>
           {taskList.length > 0 ? taskList.map((task) => (
-            <TaskBox showEditFormMethod={showTaskEditForm} key={task.id} task={task}/>
+            <TaskBox showEditFormMethod={showTaskEditForm} key={task.id} task={task}
+            deleteTaskMethod={deleteTask}
+            />
           )) : <p className={styles.advice}>You have no current tasks!</p>}
       </div>
     </>

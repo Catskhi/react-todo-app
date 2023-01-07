@@ -72,15 +72,15 @@ export default function FormCard ({
                 addOrEditMethod(newTask)
                 clearCard()
             } else {
-              let currentID : number = task!.id
-              task = {
-                id: currentID,
-                title: taskTitle,
-                description: taskDescription,
-                difficulty: currentDifficultyValue as ITask['difficulty']
-              }
-              addOrEditMethod(task)
-              clearCard()
+                let currentID : number = task!.id
+                task = {
+                  id: currentID,
+                  title: taskTitle,
+                  description: taskDescription,
+                  difficulty: currentDifficultyValue as ITask['difficulty']
+                }
+                addOrEditMethod(task)
+                clearCard()
             }
           } else {
             showOrHideError(true)

@@ -1,4 +1,4 @@
-import React, { Children, Dispatch, MutableRefObject, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, MutableRefObject, SetStateAction, useState } from 'react';
 
 import styles from './DifficultyMenu.module.css'
 
@@ -12,7 +12,6 @@ export default function DifficultyMenu ({setDifficulty, buttonRef, id} : IDiffic
   const [difficultyButtonText, setDifficultyButtonText] = useState<string>('Select a Difficulty')
 
   const showOrHideItems = () => {
-    console.log('oi')
       let dropdown = document.getElementById(id)
       for (let i:number = 0; i < dropdown!.children.length; i += 1) {
         if (dropdown!.children[i].classList.contains('hide')) {
