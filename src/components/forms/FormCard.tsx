@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useRef, useState} from 'react';
 import DifficultyMenu from './DifficultyMenu';
 
 import { ITask } from '../../interfaces/task';
