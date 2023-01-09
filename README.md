@@ -38,4 +38,8 @@ Then, install the npm packages:
   ```sh
   npm install
   ```
+Now, just run the project:
+   ```sh
+    npm run start
+   ```
 
